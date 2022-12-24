@@ -1,0 +1,21 @@
+<div class="container h-100 d-flex align-items-center justify-content-center">
+  <div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+          <h2>Liste des films</h2>
+      </div>
+      <div class="card-body d-flex justify-content-center">
+        <ul class="col-12 list-group text-center">
+          <li *ngFor="let f of films" class="list-group-item">
+            <a (click)="gotoDetails(f.id)" routerLinkActive="active">{{f.filmName}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<app-films-details [message]="message"></app-films-details>
+ <router-outlet></router-outlet> 

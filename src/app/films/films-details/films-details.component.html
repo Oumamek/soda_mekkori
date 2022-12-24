@@ -1,0 +1,12 @@
+<div class="container" *ngIf="message">
+    <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <h4>{{message.filmName}} </h4>
+<img src="{{message.affiche}}" class="image-parent"/>
+      </div>
+    </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet> 
