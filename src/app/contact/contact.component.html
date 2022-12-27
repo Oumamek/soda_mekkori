@@ -7,7 +7,7 @@
       </div>
       <div class="card-body d-flex justify-content-center">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    
+
     <div class="form-group row">
       <label>Prénom</label>
       <input
@@ -17,7 +17,7 @@
         [ngClass]="{ 'is-invalid': submitted && f['firstname'].errors }"
       />
       <div *ngIf="submitted && f['firstname'].errors" class="invalid-feedback">
-        <div *ngIf="f['firstname'].errors['required']">Prénom est requis</div>
+        <div *ngIf="f['firstname'].errors['required']">Le champ prénom est requis</div>
       </div>
     </div>
 
@@ -30,7 +30,7 @@
         [ngClass]="{ 'is-invalid': submitted && f['lastname'].errors }"
       />
       <div *ngIf="submitted && f['lastname'].errors" class="invalid-feedback">
-        <div *ngIf="f['lastname'].errors['required']">Nom est requis</div>
+        <div *ngIf="f['lastname'].errors['required']">Le champ nom est requis</div>
       </div>
     </div>
 
@@ -42,6 +42,9 @@
         class="form-control"
         [ngClass]="{ 'is-invalid': submitted && f['age'].errors }"
       />
+      <div *ngIf="submitted && f['age'].errors" class="invalid-feedback">
+        <div *ngIf="f['age'].errors">L'âge n'est pas valide</div>
+      </div>
     </div>
 
     <div class="form-group form-check row">
@@ -50,8 +53,8 @@
         formControlName="hideEmail"
         class="form-check-input"
       />
-      <label for="hideEmail" class="form-check-label">Caché email</label>
-    
+      <label for="hideEmail" class="form-check-label">Cacher l'email</label>
+
     </div>
 
     <div class="form-group row" *ngIf="!f['hideEmail'].value">
@@ -63,11 +66,11 @@
         [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
       />
       <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['required']">Email est requis</div>
-        <div *ngIf="f['email'].errors['email']">Email n'est pas valide</div>
+        <div *ngIf="f['email'].errors['required']">Le champ email est requis</div>
+        <div *ngIf="f['email'].errors['email']">l'email n'est pas valide</div>
       </div>
     </div>
-   
+
     <div class="form-group row">
       <label>Commentaire</label>
       <textarea
@@ -76,7 +79,7 @@
         [ngClass]="{ 'is-invalid': submitted && f['commentaire'].errors }"
       ></textarea>
       <div *ngIf="submitted && f['commentaire'].errors" class="invalid-feedback">
-        <div *ngIf="f['commentaire'].errors['required']">Commentaire est requis</div>
+        <div *ngIf="f['commentaire'].errors['required']">Le champ commentaire est requis</div>
       </div>
     </div>
 

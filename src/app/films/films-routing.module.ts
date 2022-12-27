@@ -1,26 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FilmsComponent } from './films/films.component';
-import { FilmsDetailsComponent } from './films-details/films-details.component';
 import { FilmsListComponent } from './films-list/films-list.component';
+import {FilmsDetailsComponent} from "./films-details/films-details.component";
 
 const routes: Routes = [
-  
+
   {
     path: 'films',
-    component: FilmsComponent,
-    children: [
-      {
-        path: '',
-        component: FilmsListComponent,
-        children: [
-          {
-            path: 'film/:id',
-            component: FilmsDetailsComponent
-          }
+    component: FilmsListComponent,
+      children: [
+        { path: 'The Dark Knight', component: FilmsDetailsComponent },
+        { path: 'The Godfather', component: FilmsDetailsComponent },
+        { path: 'Titanic', component: FilmsDetailsComponent },
+        { path: 'The Green Mile', component: FilmsDetailsComponent },
+        { path: 'Back to the Future', component: FilmsDetailsComponent }
         ]
-      }
-    ]
   }
 ];
 
