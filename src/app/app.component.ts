@@ -11,10 +11,11 @@ export class AppComponent {
 
   navbarOpen = false;
 
-  @HostListener('window:unload', ['$event'])
-    unloadHandler(event:any) {
-        window.sessionStorage.clear();
-    }
+  @HostListener('window:onload')
+  onloadHander() {
+    window.sessionStorage.clear();
+      return false;
+  }
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
