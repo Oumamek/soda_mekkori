@@ -1,5 +1,5 @@
-import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import {Film} from "../../models/film";
 
 @Component({
   selector: 'app-films-list',
@@ -8,42 +8,23 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FilmsListComponent implements OnInit {
 
-  films = [
-    {
-      id: 1,
-      filmName: 'The Dark Knight',
-      affiche: '/assets/dark.jpeg'
-    },
-    {
-      id: 2,
-      filmName: 'The Godfather',
-      affiche: '/assets/father.jpeg'
-    },
-    {
-      id: 3,
-      filmName: 'Titanic',
-      affiche: '/assets/titanic.jpeg'
-    },
-    {
-      id: 4,
-      filmName: 'The Green Mile',
-      affiche: '/assets/La-ligne-verte.jpeg'
-    },
-    {
-      id: 5,
-      filmName: 'Back to the Future',
-      affiche: '/assets/Retour-vers-le-futur.jpeg'
-    }
-  ];
-  message: any;
+  film1 : Film = {id: 1 ,title:'The Dark Knight',path:'/assets/dark.jpeg'};
+  film2 : Film = {id: 2 ,title:'The Godfather',path: '/assets/father.jpeg'};
+  film3 : Film = {id: 3 ,title:'Titanic', path:'/assets/titanic.jpeg'};
+  film4 : Film = {id: 4 ,title:'The Green Mile', path:'/assets/La-ligne-verte.jpeg'};
+  film5 : Film = {id: 5 ,title:'Back to the Future', path:'/assets/Retour-vers-le-futur.jpeg'};
+
+  films: Film[]  = [this.film1, this.film2, this.film3,this.film4,this.film5];
+
+  choosenFilm: any;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  gotoDetails(filmId: any) {
-    this.message = this.films.find(x => x.id == filmId);
+  gotoDetails(filmId: number) {
+     this.choosenFilm = this.films.find(x => x.id == filmId);
   }
 
 }

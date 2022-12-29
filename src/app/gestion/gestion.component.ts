@@ -1,5 +1,4 @@
-import { Component,Input } from '@angular/core';
-import { Contact } from '../contact/models/contact.model';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-gestion',
@@ -10,7 +9,7 @@ export class GestionComponent {
 
   constructor(public router: Router) {
   }
-  
+
   get contact():any {
     if(sessionStorage['contactData'] == null)
       return null;

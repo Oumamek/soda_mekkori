@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Contact } from './models/contact.model';
+import { Contact } from '../models/contact';
 import Validation from './validation';
 
 @Component({
@@ -28,7 +28,7 @@ export class ContactComponent {
       {
         firstname: ['', Validators.required],
         lastname: ['', Validators.required],
-        age: [''],
+        age: ['',Validators.pattern("^\\d+$")],
         email: ['', [Validators.required, Validators.email]],
         commentaire: ['', Validators.required],
         hideEmail: [false]
@@ -45,14 +45,14 @@ export class ContactComponent {
 
   onSubmit(): void {
     this.submitted = true;
-    
+
     if (this.form.invalid) {
       return;
     }
 
     this.newContact = new Contact(this.form.value.firstname,this.form.value.lastname,
       this.form.value.age,this.form.value.email,this.form.value.commentaire);
- 
+
     sessionStorage.setItem('contactData', JSON.stringify(this.newContact));
     alert('Le formulaire est valide');
     this.router.navigate(['accueil']);

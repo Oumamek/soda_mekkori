@@ -10,9 +10,9 @@ export default class Validation {
       if (email!.value === '' &&  checkbox!.value ) {
         controls.get(controlName)!.setErrors(null);
         return null;
-      } 
+      }
       else {
-        
+
         return null;
       }
     };
