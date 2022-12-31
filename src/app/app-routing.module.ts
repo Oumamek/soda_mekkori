@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'gestion', component: GestionComponent },
   { path: 'contact', component: ContactComponent },
   { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
+  { path: '**',   redirectTo: '/accueil', pathMatch: 'full' },
 ];
 
 @NgModule({
