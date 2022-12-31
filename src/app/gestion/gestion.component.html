@@ -1,31 +1,31 @@
 <div class="container h-100 d-flex align-items-center justify-content-center">
     <div class="row">
     <div class="col-12">
-      <div class="card" *ngIf="contact">
+      <div class="card" *ngIf="contactForm">
         <div class="card-header">
             <h2>Informations contact :</h2>
         </div>
         <div class="card-body d-flex justify-content-center">
           <ul class="col-12 list-group text-center">
             <li class="list-group-item">
-                Prénom : {{contact!['firstname']}}
+                Prénom : {{contactForm!['firstname']}}
             </li>
             <li class="list-group-item">
-                Nom : {{contact!['lastname']}}
+                Nom : {{contactForm!['lastname']}}
             </li>
             <li class="list-group-item">
-                Age : {{contact!['age']}}
+                Age : {{contactForm!['age']}}
             </li>
             <li class="list-group-item">
-                Email : {{contact!['email']}}
+                Email : {{contactForm!['email']}}
             </li>
             <li class="list-group-item">
-                Commentaire : {{contact!['commentaire']}}
+                Commentaire : {{contactForm!['commentaire']}}
             </li>
           </ul>
         </div>
       </div>
-      <div class=""  *ngIf="!contact">
+      <div class=""  *ngIf="!contactForm">
         <img src="/assets/404.png"/>
       </div>
     </div>

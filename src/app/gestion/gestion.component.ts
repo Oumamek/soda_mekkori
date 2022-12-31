@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { Router } from '@angular/router';
+import {GestionService} from "../gestion.service";
 @Component({
   selector: 'app-gestion',
   templateUrl: './gestion.component.html',
@@ -7,13 +7,9 @@ import { Router } from '@angular/router';
 })
 export class GestionComponent {
 
-  constructor(public router: Router) {
+  constructor(private service: GestionService) {
   }
+   contactForm =this.service.contact;
 
-  get contact():any {
-    if(sessionStorage['contactData'] == null)
-      return null;
-    var data = JSON.parse(sessionStorage['contactData']);
-    return data;
-  }
+
 }
