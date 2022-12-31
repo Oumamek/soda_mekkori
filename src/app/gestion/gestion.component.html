@@ -1,7 +1,7 @@
 <div class="container h-100 d-flex align-items-center justify-content-center">
     <div class="row">
     <div class="col-12">
-      <div class="card" *ngIf="contactForm">
+      <div class="card" *ngIf="contactForm!.firstname">
         <div class="card-header">
             <h2>Informations contact :</h2>
         </div>
@@ -25,7 +25,7 @@
           </ul>
         </div>
       </div>
-      <div class=""  *ngIf="!contactForm">
+      <div class=""  *ngIf="!contactForm!.firstname">
         <img src="/assets/404.png"/>
       </div>
     </div>

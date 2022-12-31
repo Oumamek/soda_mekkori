@@ -11,12 +11,6 @@ export class AppComponent {
 
   navbarOpen = false;
 
-  @HostListener('window:onload')
-  onloadHander() {
-    window.sessionStorage.clear();
-      return false;
-  }
-
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }

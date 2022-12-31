@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Contact } from '../models/contact';
 import Validation from './validation';
+import {GestionService} from '../gestion.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,6 +12,14 @@ import Validation from './validation';
 })
 
 export class ContactComponent {
+
+  submitted = false;
+  newContact: Contact;
+  
+  constructor(private gestionService: GestionService,
+              public router: Router,
+              private formBuilder: FormBuilder) {}
+
   form: FormGroup = new FormGroup({
     firstname: new FormControl(''),
     lastname: new FormControl(''),
@@ -19,9 +28,6 @@ export class ContactComponent {
     commentaire: new FormControl(''),
     hideEmail: new FormControl(false),
   });
-  submitted = false;
-  private newContact: Contact;
-  constructor(public router: Router,private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -53,7 +59,8 @@ export class ContactComponent {
     this.newContact = new Contact(this.form.value.firstname,this.form.value.lastname,
       this.form.value.age,this.form.value.email,this.form.value.commentaire);
 
-    sessionStorage.setItem('contactData', JSON.stringify(this.newContact));
+    this.gestionService.sendContactForm(this.newContact);
+      
     alert('Le formulaire est valide');
     this.router.navigate(['accueil']);
   }
